@@ -33,7 +33,7 @@ const router = createBrowserRouter([
       {
         path: "/book/:id",
         element: <SignleBook />,
-        loader: ({ params }) => fetch(`http://localhost:5000/book/${params.id}`)
+        loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/book/${params.id}`)
       },
       {
         path: "/about",
@@ -53,7 +53,7 @@ const router = createBrowserRouter([
       { path: "/admin/dashboard/upload", element: <UploadBook /> },
       { path: "/admin/dashboard/manage", element: <ManageBooks /> },
       { path: "/admin/dashboard/edit-books/:id", element: <EditBooks />,
-      loader: ({ params }) => fetch(`http://localhost:5000/book/${params.id}`)
+      loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/book/${params.id}`)
     },
     ],
   },

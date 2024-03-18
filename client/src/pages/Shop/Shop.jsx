@@ -10,7 +10,7 @@ export default function Shop() {
 
 // fetching data
   useEffect(() =>{
-    fetch('http://localhost:5000/all-books')
+    fetch('${import.meta.env.VITE_API_URL}/all-books')
     .then(res => res.json())
     .then(data => setBooks(data))
   }, [loading]);
