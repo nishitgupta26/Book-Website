@@ -73,6 +73,9 @@ async function run() {
     }
 }
 run().catch(console.dir);
+app.get('/all-books', (req, res) => {
+    res.send('All books !')
+})
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
