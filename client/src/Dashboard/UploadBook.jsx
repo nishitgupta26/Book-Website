@@ -55,7 +55,7 @@ const UploadBook = () => {
       bookPDFURL,
     };
     // console.log(dataObj)
-    fetch("${import.meta.env.VITE_API_URL}/upload-book", {
+    fetch(`${import.meta.env.VITE_API_URL}/upload-book`, {
       method: "POST",
 
       headers: {
