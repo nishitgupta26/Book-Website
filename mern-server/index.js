@@ -25,9 +25,6 @@ async function run() {
         await client.connect();
         const bookCollections = client.db("BookInventory").collection("Books");
         
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
-})
         app.post("/upload-book", async (req, res) => {
             const data = req.body;
             // console.log(data);
@@ -67,10 +64,14 @@ app.listen(port, () => {
             const result = await bookCollections.findOne(filter);
             res.send(result)
         })
-
-
+        
+        
         await client.db("admin").command({ ping: 1 });
         console.log("Pinged your deployment. You successfully connected to MongoDB!");
+        
+        app.listen(port, () => {
+            console.log(`Example app listening on port ${port}`)
+        })
     } finally {
     }
 }
