@@ -24,7 +24,10 @@ async function run() {
     try {
         await client.connect();
         const bookCollections = client.db("BookInventory").collection("Books");
-
+        
+app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`)
+})
         app.post("/upload-book", async (req, res) => {
             const data = req.body;
             // console.log(data);
@@ -76,7 +79,3 @@ run().catch(console.dir);
 // app.get('/all-books', (req, res) => {
 //     res.send('All books !')
 // })
-
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
-})
