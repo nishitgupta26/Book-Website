@@ -72,10 +72,6 @@ app.listen(port, () => {
         await client.db("admin").command({ ping: 1 });
         console.log("Pinged your deployment. You successfully connected to MongoDB!");
     } finally {
-        // await client.close();
     }
 }
 run().catch(console.dir);
-// app.get('/all-books', (req, res) => {
-//     res.send('All books !')
-// })
