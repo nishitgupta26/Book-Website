@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Checkbox, Label, Select, TextInput, Textarea } from 'flowbite-react';
+import { Button, Label, Select, TextInput, Textarea } from 'flowbite-react';
 import { useLoaderData, useParams } from 'react-router-dom';
 
 const EditBooks = () => {
@@ -29,9 +29,7 @@ const EditBooks = () => {
     "Art and design",
   ];
 
-  const [selectedBookCategory, setSelectedBookCategory] = useState(
-    bookCategories[0]
-  );
+  const [selectedBookCategory, setSelectedBookCategory] = useState(bookCategories[0]);
 
   const handleChangeSelectedValue = (event) => {
     console.log(event.target.value);
@@ -63,11 +61,9 @@ const EditBooks = () => {
     // update the book object
     fetch(`${import.meta.env.VITE_API_URL}/book/${id}`, {
       method: "PATCH",
-
       headers: {
         "Content-type": "application/json",
       },
-
       body: JSON.stringify(bookObj),
     })
       .then((res) => res.json())

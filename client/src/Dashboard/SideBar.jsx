@@ -1,5 +1,5 @@
 import { Sidebar } from 'flowbite-react';
-import { HiArrowSmRight, HiChartPie, HiInbox, HiShoppingBag, HiSupport, HiTable, HiUser, HiViewBoards, HiOutlineCloudUpload } from 'react-icons/hi';
+import { HiInbox, HiTable, HiOutlineCloudUpload } from 'react-icons/hi';
 import img from '../../src/assets/profile.jpg'
 import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
@@ -26,7 +26,7 @@ const SideBar = () => {
     <div className=''>
       <Sidebar aria-label="Sidebar with content separator example" className='hidden md:block'>
         <Sidebar.Logo
-          href="/"
+          href="/admin/dashboard/manage"
           img={ img}
           className='w-10 h-10 rounded-full'
           imgAlt="Flowbite logo"

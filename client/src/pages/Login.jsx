@@ -2,14 +2,16 @@ import React, { useContext, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider';
 import googleLogo from '../assets/google-logo.svg'
-
+// import {
+//     getAuth
+//   } from "firebase/auth";
+// import app from "../firebase/firebase.config";
 export default function Login() {
 
-    const [ErrorMessage, setErrorMessage] = useState('');
 
-    const { signUpWithGmail, login } = useContext(AuthContext);
-
-    console.log(signUpWithGmail)
+    const { signUpWithGmail, login, signOut } = useContext(AuthContext);
+    // const auth = getAuth(app);
+    // console.log(signUpWithGmail)
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -18,8 +20,15 @@ export default function Login() {
     // login with google
     const handleRegister = () => {
         signUpWithGmail().then((result) => {
-            const user = result.user;
-            navigate("/admin/dashboard/manage");
+            if (!result.user.email.endsWith("lnmiit.ac.in")) {
+                // If not, sign out the user and throw an error
+                // signOut(auth);
+                alert("Invalid email domain. Please use an @lnmiit.ac.in email.");
+              }
+              else{
+                const user = result?.user;
+                navigate("/admin/dashboard/manage");
+              }
         }).catch((error) => console.log(error))
     }
 

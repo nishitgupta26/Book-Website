@@ -10,6 +10,7 @@ app.use(express.json());
 app.get('/', (req, res) => {
     res.send('Hello World!')
 })
+
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const uri = "mongodb+srv://mern-book-store:Dn5XNOkLQ5yGpT1O@cluster0.jrmkpqq.mongodb.net/BookInventory?retryWrites=true&w=majority";
 const client = new MongoClient(uri, {
@@ -29,6 +30,7 @@ async function run() {
             const data = req.body;
             // console.log(data);
             const result = await bookCollections.insertOne(data);
+            // console.log(result);
             res.send(result);
         })
         app.get("/all-books", async (req, res) => {

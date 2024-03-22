@@ -1,12 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Card, Spinner } from 'flowbite-react';
 import { AuthContext } from '../../contexts/AuthProvider';
-import Modal from 'react-modal';
 
 export default function Shop() {
   const {loading } = useContext(AuthContext);
   const [books, setBooks] = useState([]);
-  const [hoveredBookId, setHoveredBookId] = useState(null); // State for the hovered book ID
 
 // fetching data
   useEffect(() =>{
@@ -36,20 +34,12 @@ export default function Shop() {
                 </p>
               </h5>
               <p className="font-normal text-gray-700 dark:text-gray-400"
-                  onMouseEnter={() => setHoveredBookId(book._id)} // Set hovered book ID on hover
-                  onMouseLeave={() => setHoveredBookId(null)} // Clear hovered book ID on mouse leave 
               >
-                {book.description.split(' ').slice(0, 20).join(' ')}
-                {book.description.split(' ').length > 20 ? '...' : ''}
+                {book.description}
               </p>
 
               <button className='px-4 py-2 bg-blue-600 text-white rounded'>Buy Now</button>
-               {/* Tooltip */}
-              {hoveredBookId === book._id && ( // Show tooltip only if the book is hovered
-                <div className="absolute z-10 bg-white border border-gray-300 p-2 rounded shadow-lg lg:w-1/4 md:w-1/3 ">
-                  {book.description}
-                </div>
-            )}
+            
             </Card>)
           }
         </div>

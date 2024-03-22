@@ -43,7 +43,7 @@ const UploadBook = () => {
     const authorName = form.authorName.value;
     const imageURL = form.imageURL.value;
     const category = form.categoryName.value;
-    const bookDescription = form.bookDescription.value;
+    const description = form.description.value;
     const bookPDFURL = form.bookPDFURL.value;
 
     const bookObj = {
@@ -51,7 +51,7 @@ const UploadBook = () => {
       authorName,
       imageURL,
       category,
-      bookDescription,
+      description,
       bookPDFURL,
     };
     // console.log(dataObj)
@@ -168,16 +168,16 @@ const UploadBook = () => {
         <div>
           <div className="mb-2 block">
             <Label
-              htmlFor="bookDescription"
+              htmlFor="description"
               value="Book Description"
             />
           </div>
           <Textarea
-            id="bookDescription"
+            id="description"
             placeholder="Book Description"
             required
             type="text"
-            name='bookDescription'
+            name='description'
             className='w-full'
             rows={4}
           />
